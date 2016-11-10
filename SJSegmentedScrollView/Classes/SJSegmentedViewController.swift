@@ -226,7 +226,8 @@ import UIKit
     var viewObservers = [UIView]()
     var segmentedScrollView = SJSegmentedScrollView(frame: CGRectZero)
     var segmentScrollViewTopConstraint: NSLayoutConstraint?
-    
+    //var gradientHeaderView = GradientHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 64) )
+    var gradientHeaderView = GradientHeaderView(frame: CGRectZero)
     
     /**
      Custom initializer for SJSegmentedViewController.
@@ -275,9 +276,10 @@ import UIKit
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         self.navigationController?.view.backgroundColor = UIColor.clearColor()
-        
+        addGradientHeaderView()
         loadControllers()
     }
+    
     
     /**
      * Update view as per the current layout
@@ -309,6 +311,11 @@ import UIKit
         segmentedScrollView.headerViewHeight            = self.headerViewHeight
         segmentedScrollView.headerViewOffsetHeight      = self.headerViewOffsetHeight
         segmentedScrollView.segmentViewHeight           = self.segmentViewHeight
+    }
+    
+    func addGradientHeaderView() {
+        self.view.addSubview(gradientHeaderView)
+        gradientHeaderView.frame = CGRectMake(0, 0, view.frame.size.width, 64)
     }
     
     /**
@@ -430,5 +437,18 @@ import UIKit
     // MARK : - SJSegmentedScrollViewDelegate
     func scrollViewContentOffsetChanged(scrollView: SJSegmentedScrollView, offset: CGPoint) {
         self.delegate?.didChangedContentOffset?(scrollView, offset: offset)
+        let openRate = offset.y / (self.headerViewHeight - 64)
+        var colorPoint = openRate + 0.15
+        if colorPoint > 1.0 {
+            colorPoint = 1.0
+        }
+        
+        print("openRate \(openRate)")
+        print("colorPoint \(colorPoint)")
+        let startColor = UIColor(red: colorPoint, green: colorPoint, blue: colorPoint, alpha: 1.0)
+        let endColor = UIColor(red: colorPoint, green: colorPoint, blue: colorPoint, alpha: openRate)
+
+        self.gradientHeaderView.changeStartColor(startColor)
+        self.gradientHeaderView.changeEndColor(endColor)
     }
 }

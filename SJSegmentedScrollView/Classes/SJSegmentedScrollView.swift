@@ -344,6 +344,8 @@ class SJSegmentedScrollView: UIScrollView {
         observing = false
         scrollView.contentOffset = point
         observing = true
-        self.contentOffsetDelegate?.scrollViewContentOffsetChanged(self, offset: point)
+        if scrollView == self {
+            self.contentOffsetDelegate?.scrollViewContentOffsetChanged(self, offset: point)
+        }
     }
 }

@@ -17,6 +17,8 @@
 		654A37AA1D703BD600A1499D /* SJUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654A37A81D703BD300A1499D /* SJUtil.swift */; };
 		8368272656EB0E82F79F9FF2CF9F9FC6 /* Pods-SJSegmentedScrollViewDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 80D5AE1A434B8CCCF2C5DB31C8D74E37 /* Pods-SJSegmentedScrollViewDemo-dummy.m */; };
 		9C80478A052F7A455796B510F510170B /* SJContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46B928F3F1DF8CB10E5B9BF01203F26 /* SJContentView.swift */; };
+		AF46D8F11DD46DCE00B96A46 /* GradientHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF46D8F01DD46DCE00B96A46 /* GradientHeaderView.swift */; };
+		AF46D8F21DD46DCE00B96A46 /* GradientHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF46D8F01DD46DCE00B96A46 /* GradientHeaderView.swift */; };
 		B3682B3DF18FA16B15F2E5AF4CC85D0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */; };
 		B4D3A03F7EA312B4BF8AFF8AE3B85DE7 /* SJSegmentedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9A549FE67DEA2A507E86744D0E92DB /* SJSegmentedScrollView.swift */; };
 		D4E5895743F65F61079746B9AC5308D3 /* SJSegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2257606120F961B257D7A10D5746E /* SJSegmentedViewController.swift */; };
@@ -54,6 +56,7 @@
 		977E5DFDF1E91528F8580A806498C11A /* Pods-SJSegmentedScrollViewDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SJSegmentedScrollViewDemo-frameworks.sh"; sourceTree = "<group>"; };
 		A2A6FF208CEC4C2861F1E9D42D651453 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A38BB26C57452274A8538E3E03725762 /* Pods-SJSegmentedScrollViewDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SJSegmentedScrollViewDemo-umbrella.h"; sourceTree = "<group>"; };
+		AF46D8F01DD46DCE00B96A46 /* GradientHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientHeaderView.swift; sourceTree = "<group>"; };
 		B2AA65796601F24134B85713AED837CC /* Pods-SJSegmentedScrollViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SJSegmentedScrollViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BCE501D5824E669B724DA0EBBE228CC0 /* Pods_SJSegmentedScrollViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SJSegmentedScrollViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD41322645BA5E39813263B167EF800F /* SJSegmentedScrollView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SJSegmentedScrollView-dummy.m"; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 				1EF73ADA9C264EC62E465622004A892A /* SJSegmentView.swift */,
 				4A224DF432C88DA3A0068C69DEAD59AC /* SJShadow.swift */,
 				654A37A81D703BD300A1499D /* SJUtil.swift */,
+				AF46D8F01DD46DCE00B96A46 /* GradientHeaderView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -265,6 +269,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					C3D12AE62A50062B92F2658C3223C13D = {
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -294,6 +303,7 @@
 				58B9E343C10ADFD4D94D250D20DDDAD9 /* SJSegmentedScrollView-dummy.m in Sources */,
 				B4D3A03F7EA312B4BF8AFF8AE3B85DE7 /* SJSegmentedScrollView.swift in Sources */,
 				D4E5895743F65F61079746B9AC5308D3 /* SJSegmentedViewController.swift in Sources */,
+				AF46D8F21DD46DCE00B96A46 /* GradientHeaderView.swift in Sources */,
 				0892BE70BD3E9312200D96DF93F9AB14 /* SJSegmentView.swift in Sources */,
 				08A7C6E931B1D4591CBD3BA40CCE3D33 /* SJShadow.swift in Sources */,
 			);
@@ -303,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF46D8F11DD46DCE00B96A46 /* GradientHeaderView.swift in Sources */,
 				8368272656EB0E82F79F9FF2CF9F9FC6 /* Pods-SJSegmentedScrollViewDemo-dummy.m in Sources */,
 				654A37A91D703BD300A1499D /* SJUtil.swift in Sources */,
 			);
@@ -324,10 +335,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9045C72A98E59D9BAA2ECF662F56671D /* SJSegmentedScrollView.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -341,6 +353,7 @@
 				MODULEMAP_FILE = "Target Support Files/SJSegmentedScrollView/SJSegmentedScrollView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = SJSegmentedScrollView;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 2.3;
@@ -354,10 +367,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9045C72A98E59D9BAA2ECF662F56671D /* SJSegmentedScrollView.xcconfig */;
 			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -371,6 +385,7 @@
 				MODULEMAP_FILE = "Target Support Files/SJSegmentedScrollView/SJSegmentedScrollView.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = SJSegmentedScrollView;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
