@@ -303,6 +303,7 @@ import UIKit
         segmentedScrollView.headerViewHeight            = headerViewHeight
         segmentedScrollView.headerViewOffsetHeight      = headerViewOffsetHeight
         segmentedScrollView.segmentViewHeight           = segmentViewHeight
+//        segmentedScrollView.bounces = false
     }
     
     /**

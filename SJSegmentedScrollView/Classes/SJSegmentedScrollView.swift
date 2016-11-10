@@ -267,9 +267,7 @@ class SJSegmentedScrollView: UIScrollView {
                         change: CGFloat,
                         oldPosition: CGPoint) {
         
-//        print("handleScrollUp offset.y = \(change)")
-        
-        if scrollView.contentOffset.y < 0.0 {
+        if scrollView.contentOffset.y <= 0.0 {
             if contentOffset.y >= 0.0 {
                 
                 var yPos = contentOffset.y - change
@@ -285,19 +283,15 @@ class SJSegmentedScrollView: UIScrollView {
                           change: CGFloat,
                           oldPosition: CGPoint) {
         
-        let offset = (headerViewHeight! - headerViewOffsetHeight!)
+        let offset = (headerViewHeight! - headerViewOffsetHeight! - 64)
         if contentOffset.y < offset {
             
-            if scrollView.contentOffset.y >= 0.0 {
-                
+            if scrollView.contentOffset.y > 0.0 {
                 var yPos = contentOffset.y - change
                 yPos = yPos > offset ? offset : yPos
                 let updatedPos = CGPoint(x: contentOffset.x, y: yPos)
-                if headerViewHeight - 64 > yPos {
-                    print("set to content offset.y = \(yPos)")
-                    setContentOffset(self, point: updatedPos)
-                    setContentOffset(scrollView, point: oldPosition)
-                }
+                setContentOffset(self, point: updatedPos)
+                setContentOffset(scrollView, point: oldPosition)
             }
         }
     }
@@ -319,17 +313,16 @@ class SJSegmentedScrollView: UIScrollView {
 
 			let diff = old.y - new.y
             
-			if diff > 0.0 {
-                print("call handleScrollUp(change: \(diff), oldPosition: \(old))")
-				handleScrollUp(scrollView!,
-				                    change: diff,
-				                    oldPosition: old)
-			} else {
-                print("call handleScrollDown(change: \(diff), oldPosition: \(old))")
-				handleScrollDown(scrollView!,
-				                      change: diff,
-				                      oldPosition: old)
+			if diff < 0.0 {
+                handleScrollDown(scrollView!,
+                                 change: diff,
+                                 oldPosition: old)
+			} else if diff > 0.0 {
+                handleScrollUp(scrollView!,
+                               change: diff,
+                               oldPosition: old)
 			}
+            
 		}
 	}
 
