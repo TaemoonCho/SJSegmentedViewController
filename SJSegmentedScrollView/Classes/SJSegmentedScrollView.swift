@@ -22,6 +22,10 @@
 
 import UIKit
 
+protocol SJSegmentedScrollViewDelegate {
+    func scrollViewContentOffsetChanged(scrollView: SJSegmentedScrollView, offset: CGPoint)
+}
+
 class SJSegmentedScrollView: UIScrollView {
     
     var segmentView: SJSegmentView?
@@ -37,7 +41,7 @@ class SJSegmentedScrollView: UIScrollView {
     var segmentShadow: SJShadow?
     var segmentTitleFont: UIFont! = UIFont.systemFontOfSize(12)
     var topSpacing: CGFloat?
-    var bottomSpacing: CGFloat?
+    var bottomSpacing = CGFloat(0)
     var observing = true
     var headerView: UIView?
     var contentControllers: [UIViewController]?
@@ -46,6 +50,17 @@ class SJSegmentedScrollView: UIScrollView {
     var scrollContentView: UIView!
     var contentViewHeightConstraint: NSLayoutConstraint!
     var didSelectSegmentAtIndex: DidSelectSegmentAtIndex?
+    var segmentViewTopMargin: CGFloat = CGFloat(0)
+    var contentOffsetDelegate: SJSegmentedScrollViewDelegate? {
+        didSet {
+            var topSpacing = UIApplication.sharedApplication().statusBarFrame.size.height
+            if let viewController = contentOffsetDelegate as? UIViewController {
+                topSpacing += 44 // Default navigation bar height
+            }
+            segmentViewTopMargin = topSpacing
+            bottomSpacing += topSpacing
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -164,7 +179,7 @@ class SJSegmentedScrollView: UIScrollView {
     
     func getContentHeight() -> CGFloat {
         var contentHeight = (self.superview?.bounds.height)! + headerViewHeight!
-        contentHeight -= (topSpacing! + bottomSpacing! + headerViewOffsetHeight!)
+        contentHeight -= (topSpacing! + bottomSpacing + headerViewOffsetHeight! + segmentViewTopMargin)
         return contentHeight
     }
     
@@ -283,7 +298,7 @@ class SJSegmentedScrollView: UIScrollView {
                           change: CGFloat,
                           oldPosition: CGPoint) {
         
-        let offset = (headerViewHeight! - headerViewOffsetHeight!)
+        let offset = (headerViewHeight! - headerViewOffsetHeight! - segmentViewTopMargin)
         
         if self.contentOffset.y < offset {
             
@@ -318,8 +333,7 @@ class SJSegmentedScrollView: UIScrollView {
             self.handleScrollUp(scrollView!,
                                 change: diff,
                                 oldPosition: old!)
-        } else {
-            
+        } else if diff < 0.0 {
             self.handleScrollDown(scrollView!,
                                   change: diff,
                                   oldPosition: old!)
@@ -330,5 +344,6 @@ class SJSegmentedScrollView: UIScrollView {
         observing = false
         scrollView.contentOffset = point
         observing = true
+        self.contentOffsetDelegate?.scrollViewContentOffsetChanged(self, offset: point)
     }
 }

@@ -34,6 +34,8 @@ import UIKit
      - parameter index: index of selected segment.
      */
     optional func didMoveToPage(controller: UIViewController, segment: UIButton?, index: Int)
+    
+    optional func didChangedContentOffset(scrollView: UIScrollView, offset: CGPoint)
 }
 
 /**
@@ -58,7 +60,7 @@ import UIKit
 /**
  *  Public class for customizing and setting our segmented scroll view
  */
-@objc public class SJSegmentedViewController: UIViewController {
+@objc public class SJSegmentedViewController: UIViewController, SJSegmentedScrollViewDelegate {
     
     /**
      *  The headerview height for 'Header'.
@@ -265,8 +267,15 @@ import UIKit
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+//        self.view.backgroundColor = UIColor.whiteColor()
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
+        self.navigationController?.view.backgroundColor = UIColor.clearColor()
+        
         loadControllers()
     }
     
@@ -276,7 +285,8 @@ import UIKit
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let topSpacing = SJUtil.getTopSpacing(self)
+//        let topSpacing = SJUtil.getTopSpacing(self)
+        let topSpacing = CGFloat(0)
         segmentedScrollView.topSpacing = topSpacing
         segmentedScrollView.bottomSpacing = SJUtil.getBottomSpacing(self)
         segmentScrollViewTopConstraint?.constant = topSpacing
@@ -288,6 +298,7 @@ import UIKit
      */
     func setDefaultValuesToSegmentedScrollView() {
         
+        segmentedScrollView.contentOffsetDelegate       = self
         segmentedScrollView.selectedSegmentViewColor    = self.selectedSegmentViewColor
         segmentedScrollView.selectedSegmentViewHeight   = self.selectedSegmentViewHeight
         segmentedScrollView.segmentTitleColor           = self.segmentTitleColor
@@ -415,4 +426,9 @@ import UIKit
                                  index: 0)
     }
     
+    
+    // MARK : - SJSegmentedScrollViewDelegate
+    func scrollViewContentOffsetChanged(scrollView: SJSegmentedScrollView, offset: CGPoint) {
+        self.delegate?.didChangedContentOffset?(scrollView, offset: offset)
+    }
 }

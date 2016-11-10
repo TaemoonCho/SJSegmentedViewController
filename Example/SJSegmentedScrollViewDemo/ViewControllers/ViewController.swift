@@ -18,8 +18,20 @@ class ViewController: UIViewController {
         self.title = "Segment"
     }
     
+    var navigationBar: UINavigationBar {
+        get {
+            return (navigationController?.navigationBar)!
+        }
+    }
     //MARK:- Private Function
     //MARK:-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.translucent = true
+        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar.shadowImage = UIImage()
+    }
     
     func getSJSegmentedViewController() -> SJSegmentedViewController? {
         
