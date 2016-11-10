@@ -12,6 +12,18 @@ import SJSegmentedScrollView
 class ViewController: UIViewController {
     
     let segmentedViewController = SJSegmentedViewController()
+    var navigationBar: UINavigationBar {
+        get {
+            return (self.navigationController?.navigationBar)!
+        }
+    }
+    
+    override open func viewDidLoad() {
+        super.viewDidLoad()
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.isTranslucent = true
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

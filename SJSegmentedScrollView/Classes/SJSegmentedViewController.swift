@@ -264,8 +264,12 @@ import UIKit
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.white
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        self.navigationController?.view.backgroundColor = UIColor.clear
+//        view.backgroundColor = UIColor.white
         automaticallyAdjustsScrollViewInsets = false
         loadControllers()
     }
@@ -276,9 +280,10 @@ import UIKit
     override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let topSpacing = SJUtil.getTopSpacing(self)
+        //let topSpacing = SJUtil.getTopSpacing(self)
+        let topSpacing = CGFloat(0)
         segmentedScrollView.topSpacing = topSpacing
-        segmentedScrollView.bottomSpacing = SJUtil.getBottomSpacing(self)
+        segmentedScrollView.bottomSpacing = 64// SJUtil.getBottomSpacing(self)
         segmentScrollViewTopConstraint?.constant = topSpacing
         segmentedScrollView.updateSubviewsFrame(view.bounds)
     }

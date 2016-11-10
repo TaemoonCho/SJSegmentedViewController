@@ -267,6 +267,8 @@ class SJSegmentedScrollView: UIScrollView {
                         change: CGFloat,
                         oldPosition: CGPoint) {
         
+//        print("handleScrollUp offset.y = \(change)")
+        
         if scrollView.contentOffset.y < 0.0 {
             if contentOffset.y >= 0.0 {
                 
@@ -284,7 +286,6 @@ class SJSegmentedScrollView: UIScrollView {
                           oldPosition: CGPoint) {
         
         let offset = (headerViewHeight! - headerViewOffsetHeight!)
-        
         if contentOffset.y < offset {
             
             if scrollView.contentOffset.y >= 0.0 {
@@ -292,8 +293,11 @@ class SJSegmentedScrollView: UIScrollView {
                 var yPos = contentOffset.y - change
                 yPos = yPos > offset ? offset : yPos
                 let updatedPos = CGPoint(x: contentOffset.x, y: yPos)
-                setContentOffset(self, point: updatedPos)
-                setContentOffset(scrollView, point: oldPosition)
+                if headerViewHeight - 64 > yPos {
+                    print("set to content offset.y = \(yPos)")
+                    setContentOffset(self, point: updatedPos)
+                    setContentOffset(scrollView, point: oldPosition)
+                }
             }
         }
     }
@@ -314,14 +318,14 @@ class SJSegmentedScrollView: UIScrollView {
 			let old = changeValues[NSKeyValueChangeKey.oldKey]?.cgPointValue {
 
 			let diff = old.y - new.y
-
+            
 			if diff > 0.0 {
-
+                print("call handleScrollUp(change: \(diff), oldPosition: \(old))")
 				handleScrollUp(scrollView!,
 				                    change: diff,
 				                    oldPosition: old)
 			} else {
-
+                print("call handleScrollDown(change: \(diff), oldPosition: \(old))")
 				handleScrollDown(scrollView!,
 				                      change: diff,
 				                      oldPosition: old)
