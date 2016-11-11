@@ -57,10 +57,6 @@ class ViewController: UIViewController {
                                                           secondViewController,
                                                           thirdViewController]
             segmentedViewController.headerViewHeight = 200
-            
-            segmentedViewController.selectedSegmentViewColor = UIColor.redColor()
-            segmentedViewController.segmentViewHeight = 60.0
-            segmentedViewController.segmentShadow = SJShadow.light()
             segmentedViewController.delegate = self
         
             return segmentedViewController
@@ -112,7 +108,7 @@ extension ViewController: SJSegmentedViewControllerDelegate {
         if segmentedViewController.segments.count > 0 {
             
             let button = segmentedViewController.segments[index]
-            button.setTitleColor(UIColor.yellowColor(), forState: .Selected)
+//            button.setTitleColor(UIColor(red: 46/255, green: 46/255, blue: 46/255, alpha: 1.0), forState: .Selected)
         }
     }
 }

@@ -35,8 +35,8 @@ class SJSegmentedScrollView: UIScrollView {
     var selectedSegmentViewColor: UIColor! = UIColor.redColor()
     var selectedSegmentViewHeight: CGFloat! = 0
     var segmentBounces = false
-    var segmentTitleColor: UIColor! = UIColor.redColor()
-    var selectedSegmentTitleColor: UIColor?
+    var segmentTitleColor: UIColor = UIColor(red: 129/255, green: 129/255, blue: 129/255, alpha: 1.0)
+    var selectedSegmentTitleColor = UIColor(red: 46/255, green: 46/255, blue: 46/255, alpha: 1.0)
     var segmentBackgroundColor: UIColor?
     var segmentShadow: SJShadow?
     var segmentTitleFont: UIFont! = UIFont.systemFontOfSize(12)
@@ -193,6 +193,7 @@ class SJSegmentedScrollView: UIScrollView {
             self.segmentView?.selectedSegmentViewColor      = self.selectedSegmentViewColor
             self.segmentView?.selectedSegmentViewHeight     = self.selectedSegmentViewHeight!
             self.segmentView?.titleColor                    = self.segmentTitleColor
+            self.segmentView?.selectedTitleColor            = self.selectedSegmentTitleColor
             self.segmentView?.segmentBackgroundColor        = self.segmentBackgroundColor
             self.segmentView?.font                          = self.segmentTitleFont!
             self.segmentView?.shadow = self.segmentShadow

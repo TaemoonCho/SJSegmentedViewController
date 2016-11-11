@@ -82,7 +82,7 @@ import UIKit
      *
      *  segmentedViewController.segmentViewHeight = 60.0
      */
-    public var segmentViewHeight: CGFloat = 40.0 {
+    public var segmentViewHeight: CGFloat = 48.0 {
         didSet {
             segmentedScrollView.segmentViewHeight = segmentViewHeight
         }
@@ -108,7 +108,7 @@ import UIKit
      *
      *  segmentedViewController.selectedSegmentViewColor = UIColor.redColor()
      */
-    public var selectedSegmentViewColor = UIColor.lightGrayColor() {
+    public var selectedSegmentViewColor = UIColor(red: 253/255, green: 57/255, blue: 57/255, alpha: 1.0) {
         didSet {
             segmentedScrollView.selectedSegmentViewColor = selectedSegmentViewColor
         }
@@ -121,7 +121,7 @@ import UIKit
      *
      *  segmentedViewController.selectedSegmentViewHeight = 5.0
      */
-    public var selectedSegmentViewHeight: CGFloat = 5.0 {
+    public var selectedSegmentViewHeight: CGFloat = 1.0 {
         didSet {
             segmentedScrollView.selectedSegmentViewHeight = selectedSegmentViewHeight
         }
@@ -134,9 +134,15 @@ import UIKit
      *
      *  segmentedViewController.segmentTitleColor = UIColor.redColor()
      */
-    public var segmentTitleColor = UIColor.blackColor() {
+    public var segmentTitleColor = UIColor(red: 129/255, green: 129/255, blue: 129/255, alpha: 1.0) {
         didSet {
             segmentedScrollView.segmentTitleColor = segmentTitleColor
+        }
+    }
+    
+    public var selectedSegmentTitleColor = UIColor(red: 46/255, green: 46/255, blue: 46/255, alpha: 1.0) {
+        didSet {
+            segmentedScrollView.selectedSegmentTitleColor = selectedSegmentTitleColor
         }
     }
     
@@ -160,7 +166,7 @@ import UIKit
      *
      *  segmentedViewController.segmentShadow = SJShadow.light()
      */
-    public var segmentShadow = SJShadow() {
+    public var segmentShadow = SJShadow(offset: CGSize(width: 0.0, height: 0.0), color: UIColor.clearColor(), radius: CGFloat(0), opacity: 0.0) {
         didSet {
             segmentedScrollView.segmentShadow = segmentShadow
         }
@@ -171,7 +177,7 @@ import UIKit
      *
      *  segmentedViewController.segmentTitleFont = UIFont.systemFontOfSize(14.0)
      */
-    public var segmentTitleFont = UIFont.systemFontOfSize(14.0) {
+    public var segmentTitleFont = UIFont.systemFontOfSize(13.0) {
         didSet {
             segmentedScrollView.segmentTitleFont = segmentTitleFont
         }
@@ -226,10 +232,17 @@ import UIKit
     var viewObservers = [UIView]()
     var segmentedScrollView = SJSegmentedScrollView(frame: CGRectZero)
     var segmentScrollViewTopConstraint: NSLayoutConstraint?
-    //var gradientHeaderView = GradientHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 64) )
     var gradientHeaderView = GradientHeaderView(frame: CGRectZero)
-    var titleFont = UIFont.systemFontOfSize(17.0)
-    
+    var titleFont = UIFont.systemFontOfSize(17.0) {
+        didSet {
+            applyBarTintColor()
+        }
+    }
+    var titleColor = UIColor.whiteColor() {
+        didSet {
+            applyBarTintColor()
+        }
+    }
     /**
      Custom initializer for SJSegmentedViewController.
      
@@ -276,16 +289,20 @@ import UIKit
         self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         self.navigationController?.view.backgroundColor = UIColor.clearColor()
         UIApplication.sharedApplication().statusBarStyle = .LightContent
-        self.navigationController?.navigationBar.titleTextAttributes =
-            [NSFontAttributeName: titleFont, NSForegroundColorAttributeName:UIColor.whiteColor()]
+    
         addGradientHeaderView()
         loadControllers()
+        applyBarTintColor()
         
         title = "테스트 타이틀"
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-//        self.navigationController?.navigationBar.titleTextAttributes =
     }
     
+    
+    private func applyBarTintColor() {
+        self.navigationController?.navigationBar.tintColor = titleColor
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSFontAttributeName: titleFont, NSForegroundColorAttributeName:titleColor]
+    }
     
     /**
      * Update view as per the current layout
@@ -293,7 +310,6 @@ import UIKit
     override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        let topSpacing = SJUtil.getTopSpacing(self)
         let topSpacing = CGFloat(0)
         segmentedScrollView.topSpacing = topSpacing
         segmentedScrollView.bottomSpacing = SJUtil.getBottomSpacing(self)
@@ -455,9 +471,7 @@ import UIKit
         
         self.gradientHeaderView.changeStartColor(startColor)
         self.gradientHeaderView.changeEndColor(endColor)
-        self.navigationController?.navigationBar.tintColor = barTintColor
-        self.navigationController?.navigationBar.titleTextAttributes =
-            [NSFontAttributeName: titleFont, NSForegroundColorAttributeName:barTintColor]
+        titleColor = barTintColor
         
         if openRate < 0.6 {
             UIApplication.sharedApplication().statusBarStyle = .LightContent

@@ -40,6 +40,14 @@ class SJSegmentView: UIScrollView {
         }
     }
     
+    var selectedTitleColor: UIColor? {
+        didSet {
+            for segment in self.segments {
+                segment.setTitleColor(selectedTitleColor, forState: .Selected)
+            }
+        }
+    }
+    
     var segmentBackgroundColor: UIColor? {
         didSet {
             for segment in self.segments {
@@ -264,10 +272,13 @@ class SJSegmentView: UIScrollView {
         let button = UIButton(type: .Custom)
         button.backgroundColor = segmentBackgroundColor
         button.setTitleColor(titleColor, forState: .Normal)
+        button.setTitleColor(selectedTitleColor, forState: .Selected)
         button.setTitle(title, forState: .Normal)
         button.titleLabel?.font = font
         button.addTarget(self, action: #selector(SJSegmentView.onSegmentButtonPress(_:)),
                          forControlEvents: .TouchUpInside)
+        button.layer.borderWidth = 0.5
+        button.layer.borderColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0).CGColor
         return button
     }
     
