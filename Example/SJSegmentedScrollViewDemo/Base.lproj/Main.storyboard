@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1VF-DZ-fun">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1VF-DZ-fun">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="ZiY-ND-bNj">
             <objects>
                 <navigationController id="1VF-DZ-fun" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xgE-Ch-xuw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -68,7 +71,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rZ8-K1-9XA" firstAttribute="top" secondItem="ElX-4L-Qmp" secondAttribute="bottom" constant="30" id="2oz-M3-ZQy"/>
                             <constraint firstItem="ElX-4L-Qmp" firstAttribute="top" secondItem="lXW-mq-JdO" secondAttribute="bottom" constant="30" id="6Sh-4J-xvE"/>
@@ -79,7 +82,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RMG-v4-f0z"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,13 +94,13 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mRY-CL-4IT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="rDR-b3-Bdd">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rDR-b3-Bdd" id="xLM-qc-Zrl">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -108,7 +110,6 @@
                             <outlet property="delegate" destination="eYn-cL-EMO" id="TOS-19-wyu"/>
                         </connections>
                     </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yDQ-aE-WrP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -130,11 +131,11 @@
                                 <rect key="frame" x="20" y="20" width="280" height="528"/>
                                 <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BUI-bM-XCd" secondAttribute="trailing" constant="20" id="11H-v4-26N"/>
                             <constraint firstItem="BUI-bM-XCd" firstAttribute="leading" secondItem="10k-5Y-7Pa" secondAttribute="leading" constant="20" id="3HX-A9-1gr"/>
@@ -142,7 +143,6 @@
                             <constraint firstItem="K3q-v7-wXX" firstAttribute="top" secondItem="BUI-bM-XCd" secondAttribute="bottom" constant="20" id="ev8-m1-mMp"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eU-T7-nKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +170,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="l8b-Uh-4gJ" firstAttribute="top" secondItem="um4-KY-74T" secondAttribute="top" id="QWT-yF-yQn"/>
                             <constraint firstAttribute="trailing" secondItem="N6c-py-nWY" secondAttribute="trailing" id="Qwj-il-0wa"/>
@@ -205,7 +205,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bTz-SO-7Ul" firstAttribute="top" secondItem="FY2-Oc-orz" secondAttribute="top" id="0dJ-oQ-E0t"/>
                             <constraint firstAttribute="trailing" secondItem="bTz-SO-7Ul" secondAttribute="trailing" id="kAl-Pb-sao"/>
@@ -213,7 +213,6 @@
                             <constraint firstItem="fWs-DV-hO0" firstAttribute="top" secondItem="bTz-SO-7Ul" secondAttribute="bottom" id="xMS-vv-EbX"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMA-pX-cpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,13 +232,13 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VBW-MV-Gmf">
                                 <rect key="frame" x="0.0" y="60" width="320" height="508"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellIdentifier" id="KEz-68-oOc">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KEz-68-oOc" id="58R-ab-tNz">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -264,7 +263,7 @@
                                         </segments>
                                     </segmentedControl>
                                 </subviews>
-                                <color key="backgroundColor" red="0.74800646551724137" green="0.74814116379310347" blue="0.45969827586206896" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.74800646551724137" green="0.74814116379310347" blue="0.45969827586206896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="9mf-u0-OpS" firstAttribute="centerX" secondItem="hEq-rg-TU8" secondAttribute="centerX" id="JFw-4c-kjB"/>
                                     <constraint firstAttribute="height" constant="60" id="hQw-PO-WZU"/>
@@ -272,7 +271,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hEq-rg-TU8" firstAttribute="top" secondItem="52u-y0-3uE" secondAttribute="top" id="1hM-ki-9B4"/>
                             <constraint firstItem="bWX-kN-9ry" firstAttribute="top" secondItem="VBW-MV-Gmf" secondAttribute="bottom" id="Ic8-91-jCo"/>
@@ -283,7 +282,6 @@
                             <constraint firstAttribute="trailing" secondItem="hEq-rg-TU8" secondAttribute="trailing" id="tj3-XE-zMl"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="customTableView" destination="VBW-MV-Gmf" id="Rd3-2h-dmB"/>
                     </connections>

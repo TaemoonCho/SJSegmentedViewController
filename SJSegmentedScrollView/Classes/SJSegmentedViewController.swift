@@ -228,6 +228,7 @@ import UIKit
     var segmentScrollViewTopConstraint: NSLayoutConstraint?
     //var gradientHeaderView = GradientHeaderView(frame: CGRect(x: 0, y: 0, width: 375, height: 64) )
     var gradientHeaderView = GradientHeaderView(frame: CGRectZero)
+    var titleFont = UIFont.systemFontOfSize(17.0)
     
     /**
      Custom initializer for SJSegmentedViewController.
@@ -268,16 +269,21 @@ import UIKit
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.view.backgroundColor = UIColor.whiteColor()
         self.automaticallyAdjustsScrollViewInsets = false
-        
         self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
         self.navigationController?.view.backgroundColor = UIColor.clearColor()
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSFontAttributeName: titleFont, NSForegroundColorAttributeName:UIColor.whiteColor()]
         addGradientHeaderView()
         loadControllers()
+        
+        title = "테스트 타이틀"
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+//        self.navigationController?.navigationBar.titleTextAttributes =
     }
     
     
@@ -443,12 +449,20 @@ import UIKit
             colorPoint = 1.0
         }
         
-        print("openRate \(openRate)")
-        print("colorPoint \(colorPoint)")
         let startColor = UIColor(red: colorPoint, green: colorPoint, blue: colorPoint, alpha: 1.0)
         let endColor = UIColor(red: colorPoint, green: colorPoint, blue: colorPoint, alpha: openRate)
-
+        let barTintColor = UIColor(red: 1.0 - openRate, green: 1.0 - openRate, blue: 1.0 - openRate, alpha: 1.0)
+        
         self.gradientHeaderView.changeStartColor(startColor)
         self.gradientHeaderView.changeEndColor(endColor)
+        self.navigationController?.navigationBar.tintColor = barTintColor
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSFontAttributeName: titleFont, NSForegroundColorAttributeName:barTintColor]
+        
+        if openRate < 0.6 {
+            UIApplication.sharedApplication().statusBarStyle = .LightContent
+        } else {
+            UIApplication.sharedApplication().statusBarStyle = .Default
+        }
     }
 }
