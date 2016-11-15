@@ -293,8 +293,6 @@ import UIKit
         addGradientHeaderView()
         loadControllers()
         applyBarTintColor()
-        
-        title = "테스트 타이틀"
     }
     
     
