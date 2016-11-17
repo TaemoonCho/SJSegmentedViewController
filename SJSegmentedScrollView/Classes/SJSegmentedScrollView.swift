@@ -323,11 +323,18 @@ class SJSegmentedScrollView: UIScrollView {
         
         let scrollView = object as? UIScrollView
         if scrollView == nil { return }
-        if scrollView == self { return }
         
         let new = change![NSKeyValueChangeNewKey]?.CGPointValue
         let old = change![NSKeyValueChangeOldKey]?.CGPointValue
         let diff = (old?.y)! - (new?.y)!
+        
+        if scrollView == self {
+            if let selfScrollView = scrollView {
+                let point = selfScrollView.contentOffset
+                self.contentOffsetDelegate?.scrollViewContentOffsetChanged(self, offset: point)
+            }
+            return
+        }
         
         if diff > 0.0 {
             
